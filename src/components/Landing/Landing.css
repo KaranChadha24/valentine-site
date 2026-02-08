@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+.landing-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #ffecd2 100%);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating hearts animation */
+.landing-container::before,
+.landing-container::after {
+  content: '💕';
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.landing-container::before {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.landing-container::after {
+  content: '💖';
+  top: 70%;
+  right: 20%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+/* Main heading */
+.landing-container h1 {
+  font-size: 4.5rem;
+  margin-bottom: 20px;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(45deg, #ff6b9d, #c06c84, #f67280);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 20px rgba(255, 107, 157, 0.3);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.5));
+  }
+  to {
+    filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.8));
+  }
+}
+
+/* Subtitle */
+.landing-container h2,
+.landing-container p {
+  font-size: 1.8rem;
+  margin-bottom: 50px;
+  color: #5c3d5c;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* Button container */
+.button-group {
+  display: flex;
+  gap: 40px;
+  position: relative;
+  margin-top: 20px;
+}
+
+/* Base button styles */
+button {
+  padding: 18px 45px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Yes button - romantic pink */
+.yes-btn {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.yes-btn::before {
+  content: '✨';
+  position: absolute;
+  left: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.yes-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
+}
+
+.yes-btn:hover::before {
+  opacity: 1;
+  left: 15px;
+}
+
+/* No button - softer purple */
+.no-btn {
+  background: linear-gradient(135deg, #d4a5a5 0%, #c8b6b6 100%);
+  color: #5c3d5c;
+  position: relative;
+}
+
+.no-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212, 165, 165, 0.4);
+}
+
+/* Music button - floating in corner */
+.music-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe9f0 100%);
+  border-radius: 50%;
+  padding: 15px;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: 3px solid rgba(255, 107, 157, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.music-btn:hover {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+  color: white;
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+}
+
+/* Sparkles decoration */
+.landing-container .sparkle {
+  position: absolute;
+  font-size: 2rem;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Add some decorative hearts in different positions */
+.heart-deco {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.2;
+  animation: float 8s ease-in-out infinite;
+}
+
+.heart-deco:nth-child(1) { top: 20%; left: 10%; animation-delay: 1s; }
+.heart-deco:nth-child(2) { top: 15%; right: 12%; animation-delay: 2s; }
+.heart-deco:nth-child(3) { bottom: 25%; left: 8%; animation-delay: 0.5s; }
+.heart-deco:nth-child(4) { bottom: 20%; right: 15%; animation-delay: 1.5s; }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .landing-container h1 {
+    font-size: 3rem;
+  }
+  
+  .landing-container h2,
+  .landing-container p {
+    font-size: 1.3rem;
+  }
+  
+  .button-group {
+    gap: 20px;
+  }
+  
+  button {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+  }
+}

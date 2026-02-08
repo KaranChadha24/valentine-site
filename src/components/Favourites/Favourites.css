@@ -1,0 +1,50 @@
+.favourites {
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+
+.favourites h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.favourites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.favourite-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.favourite-card:hover {
+  transform: translateY(-8px);
+}
+
+.favourite-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.favourite-card h3 {
+  padding: 1.5rem 1rem 0.5rem;
+  color: #ff6b9d;
+  font-size: 1.3rem;
+}
+
+.favourite-card p {
+  padding: 0 1rem 1.5rem;
+  color: #666;
+  line-height: 1.6;
+}
