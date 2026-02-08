@@ -81,30 +81,34 @@
 /* Button container */
 .button-group {
   display: flex;
-  gap: 40px;
+  gap: 50px;
   position: relative;
   margin-top: 20px;
+  align-items: center;
 }
 
-/* Base button styles */
+/* Base button styles - BIGGER AND MORE TEMPTING */
 button {
-  padding: 18px 45px;
-  font-size: 1.3rem;
+  padding: 25px 60px;
+  font-size: 1.8rem;
   border: none;
-  border-radius: 50px;
+  border-radius: 60px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
   font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
 }
 
-/* Yes button - romantic pink */
+/* Yes button - romantic pink and BIGGER */
 .yes-btn {
   background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
   color: white;
   position: relative;
   overflow: hidden;
+  min-width: 200px;
+  transform-origin: center;
 }
 
 .yes-btn::before {
@@ -113,74 +117,81 @@ button {
   left: 10px;
   opacity: 0;
   transition: all 0.3s ease;
-}
-
-.yes-btn:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
+  font-size: 1.5rem;
 }
 
 .yes-btn:hover::before {
   opacity: 1;
-  left: 15px;
+  left: 20px;
 }
 
-/* No button - softer purple */
+.yes-btn::after {
+  content: '✨';
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.yes-btn:hover::after {
+  opacity: 1;
+  right: 20px;
+}
+
+/* No button - softer purple and BIGGER */
 .no-btn {
   background: linear-gradient(135deg, #d4a5a5 0%, #c8b6b6 100%);
   color: #5c3d5c;
   position: relative;
+  min-width: 180px;
 }
 
 .no-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(212, 165, 165, 0.4);
+  box-shadow: 0 12px 40px rgba(212, 165, 165, 0.5);
 }
 
-/* Music button - floating in corner */
+/* Music button - IMPROVED VISIBILITY */
 .music-btn {
   position: absolute;
   top: 30px;
   right: 30px;
-  background: linear-gradient(135deg, #ffffff 0%, #ffe9f0 100%);
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
   border-radius: 50%;
-  padding: 15px;
-  width: 60px;
-  height: 60px;
-  font-size: 1.5rem;
+  padding: 18px;
+  width: 70px;
+  height: 70px;
+  font-size: 1.8rem;
   cursor: pointer;
-  border: 3px solid rgba(255, 107, 157, 0.3);
-  box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+  border: 4px solid white;
+  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   z-index: 10;
+  color: white;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.6);
+  }
+  50% {
+    box-shadow: 0 8px 35px rgba(255, 107, 157, 0.9);
+  }
 }
 
 .music-btn:hover {
-  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
-  color: white;
-  transform: scale(1.1) rotate(15deg);
-  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+  background: linear-gradient(135deg, #ff4d6d 0%, #ff6b9d 100%);
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 12px 40px rgba(255, 107, 157, 0.8);
 }
 
-/* Sparkles decoration */
-.landing-container .sparkle {
-  position: absolute;
-  font-size: 2rem;
-  animation: sparkle 3s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
+.music-btn:active {
+  transform: scale(1.05);
 }
 
 /* Add some decorative hearts in different positions */
@@ -208,11 +219,19 @@ button {
   }
   
   .button-group {
-    gap: 20px;
+    gap: 30px;
   }
   
   button {
-    padding: 15px 35px;
-    font-size: 1.1rem;
+    padding: 20px 45px;
+    font-size: 1.4rem;
+  }
+  
+  .yes-btn {
+    min-width: 160px;
+  }
+  
+  .no-btn {
+    min-width: 140px;
   }
 }

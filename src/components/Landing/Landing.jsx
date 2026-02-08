@@ -5,8 +5,10 @@ import "./Landing.css";
 
 function Landing({ onYes }) {
   const [noPosition, setNoPosition] = useState({ x: 0, y: 0 });
-  const [isPlaying, setIsPlaying] = useState(true);
-  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // Create audio ONLY once
+  const audioRef = useRef(new Audio("/assets/music/bg-music.mp3"));
 
   const moveNoButton = () => {
     const x = Math.random() * 300 - 150;
@@ -14,38 +16,45 @@ function Landing({ onYes }) {
     setNoPosition({ x, y });
   };
 
-  const toggleMusic = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
+  const toggleMusic = async () => {
+    const audio = audioRef.current;
+
+    try {
+      if (audio.paused) {
+        await audio.play();
       } else {
-        audioRef.current.play();
+        audio.pause();
       }
-      setIsPlaying((prev) => !prev);
+    } catch (err) {
+      console.log("Playback failed:", err);
     }
   };
 
   useEffect(() => {
-    audioRef.current = new Audio("/assets/music/bg-music.mp3");
-    audioRef.current.loop = true;
-    
-    audioRef.current.play().catch((error) => {
-      console.log("Autoplay was prevented:", error);
+    const audio = audioRef.current;
+    audio.loop = true;
+
+    // 🔥 Sync React state with REAL audio state
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
+
+    // Try autoplay (may fail — that's fine)
+    audio.play().catch(() => {
       setIsPlaying(false);
     });
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
+      audio.pause();
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
     };
   }, []);
 
   const handleYes = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-    }
+    audioRef.current.pause();
     onYes();
   };
 
@@ -56,7 +65,7 @@ function Landing({ onYes }) {
       <div className="heart-deco">❤️</div>
       <div className="heart-deco">💗</div>
       <div className="heart-deco">💓</div>
-      
+
       {/* Music Toggle Button */}
       <button className="music-btn" onClick={toggleMusic}>
         {isPlaying ? <FaVolumeUp /> : <FaVolumeMute />}
