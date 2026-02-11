@@ -190,3 +190,34 @@
     font-size: 1.5rem;
   }
 }
+
+/* Universal Emoji Fix - Add to all CSS files */
+* {
+  font-family: 'Poppins', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Prevent emojis from inheriting gradient/transparent colors */
+.celebrate-title,
+.landing-container h1,
+.stats-title,
+.timeline-title,
+.birthday-title {
+  font-family: 'Dancing Script', cursive, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+/* Force emoji visibility */
+span:has(emoji),
+*:contains('💖'),
+*:contains('❤️'),
+*:contains('💕'),
+*:contains('💓'),
+*:contains('💝'),
+*:contains('🎉'),
+*:contains('📊'),
+*:contains('📅'),
+*:contains('🎂') {
+  -webkit-text-fill-color: initial !important;
+  color: initial !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+}
