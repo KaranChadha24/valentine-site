@@ -131,7 +131,7 @@ export default function BirthdaySurprise({ onBack }) {
             animate={{ opacity: 1 }}
           >
             <motion.h1 className="birthday-title dark-text">
-              🎂 Birthday Surprise Room 🎂
+              🎂 Birthday Surprise Room
             </motion.h1>
             <motion.p className="birthday-instruction dark-text">
               It's dark in here... Let's turn on the lights!
@@ -322,29 +322,35 @@ export default function BirthdaySurprise({ onBack }) {
               </div>
               <div className="letter-body">
                 <p>
-                  Happy Birthday to the most amazing person in my life! 🎂✨
+                  Happy Birthday aayur pie! 🎂✨
                 </p>
                 <p>
-                  From the moment we met, you've filled my days with laughter, 
-                  love, and countless beautiful memories. Every moment with you 
-                  feels like a gift, and I'm so grateful to have you by my side.
+                  Thankyou so much for everything you have done for me,
+                  for making me who I am, for loving me for who I was.
+                  I have seen both my highest and my lowest with you,
+                  and you loved me the same throughout, thankyou for being someone
+                  special to me. 
                 </p>
                 <p>
-                  You make even the ordinary days extraordinary. Your smile 
-                  brightens my darkest days, and your love gives me strength 
-                  when I need it most.
+                  You make even the most ordinary days very extraordinary.
+                  you even complete my family heheheh. and I knew you would since
+                  the day we started dating, this year was extra special because of meeting
+                  mom dad, but im so happy we took that big step.
                 </p>
                 <p>
-                  On this special day, I want you to know how much you mean to me. 
-                  You're not just my valentine, you're my best friend, my partner 
-                  in crime, and my forever person.
+                  Wish you a very very happy 21st birthday, I hope you achieve all your 
+                  dreams (including me :P) and get all the love and success you deserve.
+                  let this be the year you lock in and acheive all your goals, ofcourse 
+                  all of them with me by your side, supporting and loving you every second 
+                  throughout this journey.
                 </p>
                 <p>
-                  Here's to another year of adventures, inside jokes, late-night 
-                  conversations, and all the little moments that make us, US.
+                  Its been so long i have written a long message, it feels like I am being 
+                  very formal, I hope you like it though, heheh. all in all, I just want to say
+                  I love you so so so much, and I want to make your day as special as I can.
                 </p>
                 <p className="letter-closing">
-                  I love you to the moon and back, and then some more! 🌙💖
+                  I love you to the moon and back, and then alot more! HAPPY BIRTHDAY🌙💖
                 </p>
                 <p className="letter-signature">
                   Forever yours,<br />
