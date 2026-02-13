@@ -49,19 +49,19 @@ export default function Timeline({ onBack }) {
       position: 50
     },
     {
-      date: "April 2022",
+      date: "May 2022",
       image: "/assets/images/timeline2.jpeg",
       description: "Our First Date 🌹",
       position: 750
     },
     {
-      date: "May 2022",
+      date: "Winter 2022",
       image: "/assets/images/timeline3.jpeg",
       description: "Farewell Day 🎓",
       position: 1450
     },
     {
-      date: "June 2022",
+      date: "Winter 2022",
       image: "/assets/images/timeline4.jpeg",
       description: "First Dinner Together 🍽️",
       position: 2150
@@ -75,11 +75,11 @@ export default function Timeline({ onBack }) {
     {
       date: "Summer 2024",
       image: "/assets/images/timeline6.jpeg",
-      description: "Summer Adventures ☀️",
+      description: "Summer Holidays (Peace) ☀️",
       position: 3550
     },
     {
-      date: "Fall 2024",
+      date: "Summer 2025",
       image: "/assets/images/timeline7.jpeg",
       description: "First Official Family Meeting 👨‍👩‍👧‍👦",
       position: 4250
@@ -93,11 +93,11 @@ export default function Timeline({ onBack }) {
     {
       date: "Winter 2025",
       image: "/assets/images/timeline9.jpeg",
-      description: "Cozy Winter Days ❄️",
+      description: "My fav days of our whole relationship ❄️",
       position: 5650
     },
     {
-      date: "February 2026",
+      date: "Winter 2025",
       image: "/assets/images/timeline10.jpeg",
       description: "Kiki's First Birthday Physically Together 🎂",
       position: 6350
