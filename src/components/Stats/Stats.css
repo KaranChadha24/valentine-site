@@ -280,7 +280,6 @@ span:has(emoji),
 *:contains('💓'),
 *:contains('💝'),
 *:contains('🎉'),
-*:contains('📊'),
 *:contains('📅'),
 *:contains('🎂') {
   -webkit-text-fill-color: initial !important;

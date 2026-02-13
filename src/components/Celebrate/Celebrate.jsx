@@ -119,15 +119,6 @@ export default function Celebrate({ onTimeline, onBirthday, onStats }) {
             <span className="btn-text">Our Timeline</span>
           </motion.button>
 
-          <motion.button
-            className="celebrate-btn quiz-btn"
-            whileHover={{ scale: 1.05, y: -5 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={onBirthday}
-          >
-            <span className="btn-icon">🎂</span>
-            <span className="btn-text">Birthday Surprise</span>
-          </motion.button>
 
           <motion.button
             className="celebrate-btn stats-btn"
@@ -137,6 +128,15 @@ export default function Celebrate({ onTimeline, onBirthday, onStats }) {
           >
             <span className="btn-icon">📊</span>
             <span className="btn-text">Our Stats</span>
+          </motion.button>
+          <motion.button
+            className="celebrate-btn quiz-btn"
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onBirthday}
+          >
+            <span className="btn-icon">🎂</span>
+            <span className="btn-text">Birthday Surprise</span>
           </motion.button>
         </motion.div>
       </motion.div>

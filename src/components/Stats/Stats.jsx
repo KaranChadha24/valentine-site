@@ -30,7 +30,7 @@ ChartJS.register(
 );
 
 export default function Stats({ onBack }) {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [smileCount, setSmileCount] = useState(999999999);
   const [overthinkData, setOverthinkData] = useState([]);
   const audioRef = useRef(null);
@@ -57,11 +57,11 @@ export default function Stats({ onBack }) {
     setOverthinkData(generateOverthinkData());
   }, []);
 
-  // Increment smile count by 1 every 5 seconds
+  // Increment smile count by 1 every 2 seconds (FASTER!)
   useEffect(() => {
     const interval = setInterval(() => {
       setSmileCount((prev) => prev + 1);
-    }, 5000);
+    }, 2000); // Changed from 5000 to 2000
 
     return () => clearInterval(interval);
   }, []);
@@ -71,7 +71,9 @@ export default function Stats({ onBack }) {
     audioRef.current = new Audio("/assets/music/stats-music.mp3");
     audioRef.current.loop = true;
 
-    audioRef.current.play().catch((error) => {
+    audioRef.current.play().then(() => {
+      setIsPlaying(true);
+    }).catch((error) => {
       console.log("Autoplay was prevented:", error);
       setIsPlaying(false);
     });
@@ -87,12 +89,17 @@ export default function Stats({ onBack }) {
   // Toggle music
   const toggleMusic = () => {
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
+      if (audioRef.current.paused) {
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+        }).catch((error) => {
+          console.log("Play failed:", error);
+          setIsPlaying(false);
+        });
       } else {
-        audioRef.current.play();
+        audioRef.current.pause();
+        setIsPlaying(false);
       }
-      setIsPlaying((prev) => !prev);
     }
   };
 
@@ -152,9 +159,10 @@ export default function Stats({ onBack }) {
         labels: {
           font: {
             family: "'Poppins', sans-serif",
-            size: 12,
+            size: 10,
           },
           color: '#5c3d5c',
+          padding: 8,
         },
       },
     },
@@ -162,6 +170,18 @@ export default function Stats({ onBack }) {
       y: {
         beginAtZero: true,
         max: 100,
+        ticks: {
+          font: {
+            size: 10,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: 10,
+          },
+        },
       },
     },
   };
@@ -185,8 +205,8 @@ export default function Stats({ onBack }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="stats-title">Our Relationship Stats 📊💕</h1>
-        <p className="stats-subtitle">The numbers don't lie... they're just extremely biased 😉</p>
+        <h1 className="stats-title">Our Relationship Stats <span className="emoji-inline">💕</span></h1>
+        <p className="stats-subtitle">The numbers don't lie... they're just extremely biased <span className="emoji-inline">😉</span></p>
       </motion.div>
 
       {/* KPI Section */}
@@ -219,7 +239,7 @@ export default function Stats({ onBack }) {
           </div>
           <div className="kpi-value">{daysOfLove.toLocaleString()}</div>
           <div className="kpi-label">Days I've Loved You</div>
-          <div className="kpi-note">in my head before we dated<br />mein sankee hu 🙈</div>
+          <div className="kpi-note">in my head before we dated<br />mein sankee hu <span className="emoji-inline">🙈</span></div>
         </motion.div>
 
         {/* KPI 3: Rating */}
@@ -232,7 +252,7 @@ export default function Stats({ onBack }) {
           </div>
           <div className="kpi-value">11/10</div>
           <div className="kpi-label">Relationship Rating</div>
-          <div className="kpi-note">Eleven 😉</div>
+          <div className="kpi-note">Eleven <span className="emoji-inline">😉</span></div>
         </motion.div>
 
         {/* KPI 4: Smiles */}
@@ -245,7 +265,7 @@ export default function Stats({ onBack }) {
           </div>
           <div className="kpi-value">{smileCount.toLocaleString()}</div>
           <div className="kpi-label">Number of Smiles</div>
-          <div className="kpi-note">you're still smiling while looking at this 😊</div>
+          <div className="kpi-note">you're still smiling while looking at this <span className="emoji-inline">😊</span></div>
         </motion.div>
       </motion.div>
 
@@ -261,7 +281,7 @@ export default function Stats({ onBack }) {
           className="chart-card"
           whileHover={{ y: -10 }}
         >
-          <h3 className="chart-title">Who Was Wrong? 🤔</h3>
+          <h3 className="chart-title">Who Was Wrong? <span className="emoji-inline">🤔</span></h3>
           <div className="chart-wrapper">
             <Bar data={wrongnessData} options={chartOptions} />
           </div>
@@ -273,7 +293,7 @@ export default function Stats({ onBack }) {
           className="chart-card"
           whileHover={{ y: -10 }}
         >
-          <h3 className="chart-title">Do I Love You to the Moon & Back? 🌙</h3>
+          <h3 className="chart-title">Do I Love You to the Moon & Back? <span className="emoji-inline">🌙</span></h3>
           <div className="chart-wrapper doughnut-wrapper">
             <Doughnut 
               data={loveData} 
@@ -286,9 +306,10 @@ export default function Stats({ onBack }) {
                     labels: {
                       font: {
                         family: "'Poppins', sans-serif",
-                        size: 14,
+                        size: 11,
                       },
                       color: '#5c3d5c',
+                      padding: 8,
                     },
                   },
                 },
@@ -303,7 +324,7 @@ export default function Stats({ onBack }) {
           className="chart-card full-width"
           whileHover={{ y: -10 }}
         >
-          <h3 className="chart-title">Overthinking Levels Throughout the Day 🧠</h3>
+          <h3 className="chart-title">Overthinking Levels Throughout the Day <span className="emoji-inline">🧠</span></h3>
           <div className="chart-wrapper">
             {overthinkChartData && (
               <Line data={overthinkChartData} options={chartOptions} />

@@ -14,8 +14,8 @@ function App() {
       {stage === "celebrate" && (
         <Celebrate
           onTimeline={() => setStage("timeline")}
-          onBirthday={() => setStage("birthday")}
           onStats={() => setStage("stats")}
+          onBirthday={() => setStage("birthday")}
         />
       )}
       {stage === "timeline" && <Timeline onBack={() => setStage("celebrate")} />}
