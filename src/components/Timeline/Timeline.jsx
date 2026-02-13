@@ -218,6 +218,20 @@ export default function Timeline({ onBack }) {
             </div>
           </motion.div>
         ))}
+
+        {/* Infinity sign at the end */}
+        <motion.div
+          className="timeline-infinity"
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, type: "spring" }}
+          viewport={{ once: true }}
+        >
+          <div className="infinity-symbol">∞</div>
+          <p className="infinity-footnote">
+            Timeline yet to be weaved together 💕❤️💖 😊
+          </p>
+        </motion.div>
       </div>
     </div>
   );

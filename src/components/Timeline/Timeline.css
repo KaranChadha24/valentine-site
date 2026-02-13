@@ -294,3 +294,340 @@
     height: 350px;
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+.timeline-container {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #ffe0e9 0%, #fff3f7 50%, #ffecd2 100%);
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Back button */
+.timeline-back-btn {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe9f0 100%);
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 3px solid rgba(255, 107, 157, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  z-index: 100;
+  color: #5c3d5c;
+  font-weight: 600;
+}
+
+.timeline-back-btn:hover {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+  color: white;
+  transform: translateX(-5px);
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+}
+
+/* Music button */
+.timeline-music-btn {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe9f0 100%);
+  border-radius: 50%;
+  padding: 15px;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: 3px solid rgba(255, 107, 157, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.timeline-music-btn:hover {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+  color: white;
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+}
+
+/* Header section */
+.timeline-header {
+  text-align: center;
+  padding: 100px 20px 60px;
+  position: relative;
+}
+
+.timeline-title {
+  font-size: 4.5rem;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(45deg, #ff6b9d, #c06c84, #f67280);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.5));
+  }
+  to {
+    filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.8));
+  }
+}
+
+/* Timeline content wrapper - MUCH TALLER NOW */
+.timeline-content {
+  position: relative;
+  max-width: 1400px;  /* Increased from 1200px */
+  margin: 0 auto;
+  padding: 40px 20px 200px;  /* Added more bottom padding */
+  min-height: 7200px;  /* Increased from 3200px */
+}
+
+/* The wavy vine SVG - EXTENDED HEIGHT */
+.timeline-vine-svg {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 500px;  /* Increased from 400px for wider waves */
+  height: 7000px;  /* Increased from 3000px */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Timeline item container - ABSOLUTE POSITIONING */
+.timeline-item {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  height: 550px;
+}
+
+/* When vine curves right (even index), image on left - MORE SPACE */
+.timeline-item.right {
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.timeline-item.right .timeline-card {
+  margin-left: 100px;  /* Increased from 50px */
+}
+
+/* When vine curves left (odd index), image on right - MORE SPACE */
+.timeline-item.left {
+  justify-content: flex-end;
+  padding-right: 0;
+}
+
+.timeline-item.left .timeline-card {
+  margin-right: 100px;  /* Increased from 50px */
+}
+
+/* Heart connector on the vine - now follows the wave */
+.timeline-heart {
+  position: absolute;
+  font-size: 2.8rem;
+  z-index: 10;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(255, 107, 157, 0.4));
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.2);
+  }
+}
+
+/* Memory card */
+.timeline-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 500px;  /* Increased from 450px */
+  max-width: 90%;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255, 107, 157, 0.3);
+}
+
+/* Image container */
+.timeline-image {
+  width: 100%;
+  height: 450px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+  background: #f0f0f0;
+}
+
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.timeline-card:hover .timeline-image img {
+  transform: scale(1.05);
+}
+
+/* Polaroid-style frame effect */
+.timeline-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid rgba(255, 255, 255, 0.9);
+  pointer-events: none;
+}
+
+/* Date label */
+.timeline-date {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(255, 107, 157, 0.3);
+}
+
+/* Description text */
+.timeline-description {
+  color: #5c3d5c;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Small heart decorations */
+.timeline-card::before {
+  content: '💕';
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 2rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.timeline-card:hover::before {
+  opacity: 1;
+  top: -20px;
+  right: -20px;
+}
+
+/* Infinity section at the end */
+.timeline-infinity {
+  position: absolute;
+  top: 6900px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.infinity-symbol {
+  font-size: 8rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff6b9d, #c06c84, #f67280);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: glow 2s ease-in-out infinite alternate;
+  margin-bottom: 20px;
+}
+
+.infinity-footnote {
+  font-size: 1.3rem;
+  color: #5c3d5c;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .timeline-title {
+    font-size: 3rem;
+  }
+
+  .timeline-vine-svg {
+    width: 300px;
+  }
+
+  .timeline-item {
+    justify-content: center !important;
+    padding: 0 !important;
+    height: 500px;
+  }
+
+  .timeline-item.left .timeline-card,
+  .timeline-item.right .timeline-card {
+    margin: 0 auto !important;
+  }
+
+  .timeline-card {
+    width: 90%;
+  }
+
+  .timeline-heart {
+    left: 50% !important;
+    transform: translateX(-50%) translateY(-50%) !important;
+  }
+
+  .timeline-back-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .timeline-image {
+    height: 350px;
+  }
+
+  .infinity-symbol {
+    font-size: 5rem;
+  }
+
+  .infinity-footnote {
+    font-size: 1.1rem;
+    padding: 0 20px;
+  }
+}
