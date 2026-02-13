@@ -330,7 +330,7 @@ export default function Stats({ onBack }) {
               <Line data={overthinkChartData} options={chartOptions} />
             )}
           </div>
-          <p className="chart-footnote">*Kiki's brain: "Is this too much? Wait, is this too little? WHAT DOES THIS MEAN?!"</p>
+          <p className="chart-footnote">*Overthinking Couple issa</p>
         </motion.div>
       </motion.div>
     </div>

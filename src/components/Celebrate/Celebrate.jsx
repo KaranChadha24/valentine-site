@@ -90,7 +90,7 @@ export default function Celebrate({ onTimeline, onBirthday, onStats }) {
           transition={{ type: "spring", stiffness: 120, delay: 0.2 }}
           className="celebrate-title"
         >
-          Yesss! 💖✨
+          YAYAYAYAYAYAYAY! 💖✨
         </motion.h1>
 
         <motion.p
@@ -99,7 +99,7 @@ export default function Celebrate({ onTimeline, onBirthday, onStats }) {
           transition={{ delay: 0.6 }}
           className="celebrate-subtitle"
         >
-          This just became my favorite day ever! 🎉
+         I knew you would say yes! 🎉
         </motion.p>
 
         {/* Button group */}
